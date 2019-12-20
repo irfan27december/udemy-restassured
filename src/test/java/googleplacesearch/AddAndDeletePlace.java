@@ -5,6 +5,8 @@ import static org.hamcrest.Matchers.equalTo;
 
 import org.testng.annotations.Test;
 
+import googleplacesearch.PayloadGenerator;
+
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
@@ -29,10 +31,13 @@ public class AddAndDeletePlace {
 				"\"website\": \"http: //google.com\","+
 				"\"language\": \"French - IN\""+
 				"}";
+		String createPlacePayLaod = PayloadGenerator.generatePayLoadString("CreatePlace.json");
 		RestAssured.baseURI = "http://216.10.245.166";
 		Response response = given().
 				queryParam("key", "qaclick123").
-				body(requestBody).			
+				//body(requestBody).
+				
+				body(createPlacePayLaod).
 				when().
 				post("/maps/api/place/add/json").
 				then().assertThat().statusCode(200).and().contentType(ContentType.JSON).and().
