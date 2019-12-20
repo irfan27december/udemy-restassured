@@ -8,14 +8,14 @@ import static io.restassured.RestAssured.given;
 import org.testng.annotations.Test;
 import static org.hamcrest.Matchers.equalTo;
 
-public class Basic {
+public class GetRequest {
 	
 	/*public static void main(String args[]){
 		
 	}*/
 
 	@Test()
-	public void GetCallExample() {
+	public void getCallExample() {
 		
 		//Provide Base URL
 		RestAssured.baseURI = "https://maps.googleapis.com";
