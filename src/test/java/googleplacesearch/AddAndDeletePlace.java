@@ -11,14 +11,16 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import utilities.ReadProperties;
 
 public class AddAndDeletePlace {
+	ReadProperties properties = new ReadProperties();
 
 	@Test
 	public void addAndDeletePlace(){
 
 		//Provide Base URL
-		String requestBody = "{"+
+		/*String requestBody = "{"+
 				"\"location\": {"+
 				"\"lat\": -38.383494,"+
 				"\"lng\": 33.427362"+
@@ -30,17 +32,17 @@ public class AddAndDeletePlace {
 				"\"types\": [\"shoe park\"],"+
 				"\"website\": \"http: //google.com\","+
 				"\"language\": \"French - IN\""+
-				"}";
+				"}";*/
 		String createPlacePayLaod = PayloadGenerator.generatePayLoadString("CreatePlace.json");
-		RestAssured.baseURI = "http://216.10.245.166";
-		Response response = given().
-				queryParam("key", "qaclick123").
+		RestAssured.baseURI = properties.getPropertyValue("BASEURI");
+		Response response = given().				
+				queryParam(properties.getPropertyValue("KEYNAME"), properties.getPropertyValue("KEYVALUE")).
 				//body(requestBody).
-				
+
 				body(createPlacePayLaod).
 				when().
-				post("/maps/api/place/add/json").
-				then().assertThat().statusCode(200).and().contentType(ContentType.JSON).and().
+				post(properties.getPropertyValue("POST_RESOURCE")).
+				then().assertThat().statusCode(200).and().contentType(properties.getPropertyValue("CONTENTTYPE_JSON")).and().
 				body("status",equalTo("OK")).
 				extract().response();
 		String responseString = response.asString();
@@ -53,13 +55,14 @@ public class AddAndDeletePlace {
 
 		//Pass the place id to delete request
 		given().
-		queryParam("key","qaclick123").
+		//queryParam("key","qaclick123").
+		queryParam(properties.getPropertyValue("KEYNAME"), properties.getPropertyValue("KEYVALUE")).
 		body("{"+
 				"\"place_id\": \""+placeID+"\""+
 				"}").
 		when().
-		post("/maps/api/place/delete/json").
-		then().assertThat().statusCode(200).and().contentType(ContentType.JSON).and().
+		post(properties.getPropertyValue("DELETE_RESOURCE")).
+		then().assertThat().statusCode(200).and().contentType(properties.getPropertyValue("CONTENTTYPE_JSON")).and().
 		body("status",equalTo("OK"));
 
 	}

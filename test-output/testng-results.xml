@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="3289" started-at="2019-12-20T08:13:01Z" finished-at="2019-12-20T08:13:04Z">
+  <suite name="Default suite" duration-ms="2726" started-at="2019-12-23T13:10:26Z" finished-at="2019-12-23T13:10:29Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="3289" started-at="2019-12-20T08:13:01Z" finished-at="2019-12-20T08:13:04Z">
-      <class name="googleplacesearch.AddAndDeletePlace">
-        <test-method status="PASS" signature="addAndDeletePlace()[pri:0, instance:googleplacesearch.AddAndDeletePlace@5f9d02cb]" name="addAndDeletePlace" duration-ms="3256" started-at="2019-12-20T08:13:01Z" finished-at="2019-12-20T08:13:04Z">
+    <test name="Default test" duration-ms="2726" started-at="2019-12-23T13:10:26Z" finished-at="2019-12-23T13:10:29Z">
+      <class name="googleplacesearch.AddAndDeletePlace_XML">
+        <test-method status="PASS" signature="addAndDeletePlace()[pri:0, instance:googleplacesearch.AddAndDeletePlace_XML@5f9d02cb]" name="addAndDeletePlace" duration-ms="2694" started-at="2019-12-23T13:10:26Z" finished-at="2019-12-23T13:10:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addAndDeletePlace -->
-      </class> <!-- googleplacesearch.AddAndDeletePlace -->
+      </class> <!-- googleplacesearch.AddAndDeletePlace_XML -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

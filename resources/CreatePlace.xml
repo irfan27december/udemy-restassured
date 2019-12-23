@@ -1,0 +1,21 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
+<!-- <root> -->
+<PlaceAddRequest>
+
+   <accuracy>50</accuracy>
+   <address>BDH</address>
+   <language>French - IN</language>
+   <location>
+      <lat>-38.383495</lat>
+      <lng>33.42736</lng>
+   </location>
+   <name>Frontline house</name>
+   <phone_number>(+91) 9848179563</phone_number>
+   <types>
+      <element>shoe park</element>
+      <element>shop</element>
+   </types>
+   <website>http: //google.com</website>
+<!-- </root> -->
+</PlaceAddRequest>
+
